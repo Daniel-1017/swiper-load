@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .product-card .product-card__body > *:not(:last-child) {
+                @apply mb-4;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="main.js" defer></script>
+    <script src="swiper/swiper.js" defer></script>
+
+    <!-- Swiper styles. CSS & JS are downloaded via JS. -->
+    <style>
+        .swiper {
+            width: 100%;
+            height: var(--height, 100%) !important;
+        }
+
+        /* .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <section id="hero-section">
+            <script src="swiper/hero-swiper.js" defer></script>
+
+            <!-- Set the style attribute with --height: ; variable to set a specific height. 500px is default height. -->
+            <x-hero-swiper style="--height: 90vh;" navigation>
+                <script type="application/json">
+                    {
+                        "config": {
+                            "swiperSettings": {
+                                "loop": true,
+                                "autoplay": {
+                                    "delay": 5000
+                                }
+                            },
+                            "mediaURLs": [
+                                "https://plus.unsplash.com/premium_photo-1733514691599-d4a2eb3ca7ca?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "https://plus.unsplash.com/premium_photo-1734275012690-6d3006fba036?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "https://images.unsplash.com/photo-1732740674513-63afb262a988?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            ]
+                        }
+                    }
+                </script>
+            </x-hero-swiper>        
+        </section>
+
+        <section id="best-sellers" class="py-10">
+            <script src="swiper/products-swiper.js" defer></script>
+
+            <h2 class="text-4xl text-center font-extrabold mb-5">Best Sellers</h2>
+
+            <div class="container">
+                <!-- Set the style attribute with --height: ; variable to set a specific height. 500px is default height. -->
+                <x-products-swiper style="--height: auto;" pagination>
+                    <script type="application/json">
+                        {
+                            "config": {
+                                "url": "https://dummyjson.com/products",
+                                "swiperSettings": {
+                                    "loop": true,
+                                    "autoplay": {
+                                        "delay": 2500
+                                    },
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 20,
+                                    "breakpoints": {
+                                        "1024": {
+                                            "slidesPerView": 4
+                                        },
+                                        "768": {
+                                            "slidesPerView": 3
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </x-products-swiper>
+            </div>  
+        </section>
+    </main>
+</body>
+
+</html>
