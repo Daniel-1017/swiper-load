@@ -1,5 +1,5 @@
 class xSwiper extends View {
-    config = JSON.parse(this.querySelector('script')?.textContent ?? null)?.config;
+    config = JSON.parse(this.querySelector('script')?.textContent ?? null)?.config ?? {};
 
     hasNavigation = this.hasAttribute('navigation');
     hasPagination = this.hasAttribute('pagination');
@@ -39,7 +39,7 @@ class xSwiper extends View {
     }
 
     initSwiper() {
-        new Swiper(this, { ...this.defaultConfig, ...this.config.swiperSettings });
+        this.swiper = new Swiper(this, { ...this.defaultConfig, ...this.config.swiperSettings });
     }
 
     generateMarkup() {
@@ -67,7 +67,7 @@ class xSwiper extends View {
     }
 }
 
-; (() => {
+;(() => {
     if (customElements.get('x-swiper')) return;
     customElements.define('x-swiper', xSwiper);
 })();
