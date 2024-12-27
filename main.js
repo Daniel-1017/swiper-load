@@ -37,7 +37,7 @@ class Utils {
      * @param {boolean} [runOnce=true] - If true, the observer will stop observing after the first intersection.
      * @returns {Promise<void>} A promise that resolves when the target element intersects with the viewport or root element.
      */
-    static waitForInteraction(targetElement, config = {}, runOnce = true) {
+    static waitForIntersection(targetElement, config = {}, runOnce = true) {
         return new Promise(resolve => {
             // Create the Intersection Observer
             const observer = new IntersectionObserver(

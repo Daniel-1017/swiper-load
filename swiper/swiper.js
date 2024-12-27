@@ -19,7 +19,7 @@ class xSwiper extends View {
     constructor() { super(); }
 
     async connectedCallback() {
-        await Utils.waitForInteraction(this);
+        await Utils.waitForIntersection(this);
         
         await this.loadSwiper();
 
